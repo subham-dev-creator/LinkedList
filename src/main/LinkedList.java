@@ -37,13 +37,12 @@ public class LinkedList<T> {
 
         if((Tail==null) && (Head==null)){
             Head=temp;
-            Tail=temp;
         }
         else
         {
             Tail.setNext(temp);
-            Tail=temp;
         }
+        Tail=temp;
 
     }
 
@@ -77,7 +76,6 @@ public class LinkedList<T> {
 
             while(len>0){
                 iteratorNode = iteratorNode.getNext();
-//                System.out.println(iteratorNode.getValue());
                 len--;
             }
 
@@ -100,6 +98,26 @@ public class LinkedList<T> {
             Head=Head.getNext();
         }
     }
+
+    //DELETION OF NODE AT THE END OF THE LINKED LIST
+    public void deleteNodeEnd(){
+        if(Head == null) // if no node is there
+        return;
+        else if(Head==Tail) // for single element in linked list
+        {
+            Head = null;
+            Tail = null;
+        }
+        else{
+            // Any other case
+            Node<T> iterator = Head;
+            while(iterator.getNext().getNext()!=null){
+                iterator=iterator.getNext();
+            }
+            iterator.setNext(null);
+            Tail=iterator;
+        }
+    }
     public static void main(String[] args) {
         LinkedList<Integer> list =new LinkedList<>();
         list.addNodeLast(56);
@@ -107,7 +125,7 @@ public class LinkedList<T> {
         list.addNodeMid(30);
         list.printList();
         System.out.println();
-        list.deleteNodeFront();
+        list.deleteNodeEnd();
         list.printList();
     }
 }
