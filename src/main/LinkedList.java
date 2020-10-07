@@ -9,10 +9,11 @@ public class LinkedList<T> {
     private Node<T> Tail = null;
 
     // Function to print the LinkedList
-    private void printList(Node<T> node) {
-        while(node!=null) {
-            System.out.print(node.getValue() + " -->> ");
-            node = node.getNext();
+    private void printList() {
+        Node<T> iteratorNode = Head;
+        while(iteratorNode!=null) {
+            System.out.print(iteratorNode.getValue() + " -->> ");
+            iteratorNode = iteratorNode.getNext();
         }
     }
 
@@ -84,11 +85,29 @@ public class LinkedList<T> {
             iteratorNode.setNext(temp);
         }
     }
+
+    // DELETION OF NODE AT THE FRONT OF LINKED LIST
+    private void deleteNodeFront(){
+        if(Head == null) // if no node is there
+            return;
+        else if(Head==Tail) // for single element in linked list
+        {
+            Head = null;
+            Tail = null;
+        }
+        else{
+            // Any other case
+            Head=Head.getNext();
+        }
+    }
     public static void main(String[] args) {
         LinkedList<Integer> list =new LinkedList<>();
         list.addNodeLast(56);
         list.addNodeLast(70);
         list.addNodeMid(30);
-        list.printList(list.Head);
+        list.printList();
+        System.out.println();
+        list.deleteNodeFront();
+        list.printList();
     }
 }
