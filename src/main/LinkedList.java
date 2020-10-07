@@ -77,7 +77,6 @@ public class LinkedList<T> {
 
             while(len>0){
                 iteratorNode = iteratorNode.getNext();
-//                System.out.println(iteratorNode.getValue());
                 len--;
             }
 
@@ -85,29 +84,12 @@ public class LinkedList<T> {
             iteratorNode.setNext(temp);
         }
     }
-
-    // DELETION OF NODE AT THE FRONT OF LINKED LIST
-    private void deleteNodeFront(){
-        if(Head == null) // if no node is there
-            return;
-        else if(Head==Tail) // for single element in linked list
-        {
-            Head = null;
-            Tail = null;
-        }
-        else{
-            // Any other case
-            Head=Head.getNext();
-        }
-    }
+    
     public static void main(String[] args) {
-        LinkedList<Integer> list =new LinkedList<>();
+        LinkedList<Integer> list = new LinkedList<>();
         list.addNodeLast(56);
         list.addNodeLast(70);
         list.addNodeMid(30);
-        list.printList();
-        System.out.println();
-        list.deleteNodeFront();
         list.printList();
     }
 }
