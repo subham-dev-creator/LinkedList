@@ -29,9 +29,9 @@ public class LinkedList<T> {
 
     public static void main(String[] args) {
         LinkedList<Integer> list =new LinkedList<>();
-        list.addNode(56);
-        list.addNode(30);
         list.addNode(70);
+        list.addNode(30);
+        list.addNode(56);
         list.printList(list.Head);
     }
 }
