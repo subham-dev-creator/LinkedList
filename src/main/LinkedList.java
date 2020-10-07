@@ -46,12 +46,49 @@ public class LinkedList<T> {
 
     }
 
+    // returns the length of the Linked List
+    private int length(){
+        int len=0;
+        Node<T> iteratorNode = Head;
+        while(iteratorNode!=null){
+            len++;
+            iteratorNode = iteratorNode.getNext();
+        }
+        return len;
+    }
 
+    // Add Node in the middle of LinkedList
+    private void addNodeMid(T value){
+        Node<T> temp = new Node<T>(value);
+
+        if((Tail==null) && (Head==null)){
+            Head=temp;
+            Tail=temp;
+        }
+        else
+        {
+            Node<T> iteratorNode = Head;
+
+            int len = length();
+            if(len%2==0)
+                len--;
+            len=len/2;
+
+            while(len>0){
+                iteratorNode = iteratorNode.getNext();
+//                System.out.println(iteratorNode.getValue());
+                len--;
+            }
+
+            temp.setNext(iteratorNode.getNext());
+            iteratorNode.setNext(temp);
+        }
+    }
     public static void main(String[] args) {
         LinkedList<Integer> list =new LinkedList<>();
         list.addNodeLast(56);
-        list.addNodeLast(30);
         list.addNodeLast(70);
+        list.addNodeMid(30);
         list.printList(list.Head);
     }
 }
