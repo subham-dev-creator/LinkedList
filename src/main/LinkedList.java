@@ -18,7 +18,7 @@ public class LinkedList<T> {
     }
 
     // Add node in linkedList in the front
-    private void addNodeFront(T value){
+    public void addNodeFront(T value){
         Node<T> temp = new Node<T>(value);
         if((Tail==Head) && (Head==null)){
             Head=temp;
@@ -32,7 +32,7 @@ public class LinkedList<T> {
     }
 
     // Add node in LinkedList at the end
-    private void addNodeLast(T value){
+    public void addNodeLast(T value){
         Node<T> temp = new Node<T>(value);
 
         if((Tail==null) && (Head==null)){
@@ -58,7 +58,7 @@ public class LinkedList<T> {
     }
 
     // Add Node in the middle of LinkedList
-    private void addNodeMid(T value){
+    public void addNodeMid(T value){
         Node<T> temp = new Node<T>(value);
 
         if((Tail==null) && (Head==null)){
@@ -118,6 +118,17 @@ public class LinkedList<T> {
             Tail=iterator;
         }
     }
+
+    public boolean findNodeWithValue(T value){
+        Node<T> iterator = Head;
+        while(iterator!=null){
+            if(iterator.getValue()==value)
+                return true;
+            iterator = iterator.getNext();
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
         LinkedList<Integer> list =new LinkedList<>();
         list.addNodeLast(56);
