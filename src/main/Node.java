@@ -2,19 +2,19 @@ package main;
 
 public class Node<T> {
 
-    private int Value;
+    private T Value;
     private Node<T> next;
 
-    public Node(int value){
+    public Node(T value){
         this.Value=value;
         this.next=null;
     }
 
-    public int getValue() {
+    public T getValue() {
         return Value;
     }
 
-    public void setValue(int value) {
+    public void setValue(T value) {
         Value = value;
     }
 
