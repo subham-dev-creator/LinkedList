@@ -1,6 +1,6 @@
 package main;
 
-public class Node<T> {
+public class Node<T>{
 
     private T Value;
     private Node<T> next;
@@ -25,4 +25,5 @@ public class Node<T> {
     public void setNext(Node<T> next) {
         this.next = next;
     }
+
 }
