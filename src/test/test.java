@@ -18,7 +18,7 @@ public class test {
 
 
     @Test
-    public void givenMaxNumber_At1stPosition_ReturnNumber() {
+    public void testToFindTheNodeIsPresentOrNot() {
         assertEquals(true,list.findNodeWithValue(30));
     }
 
