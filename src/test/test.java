@@ -13,13 +13,14 @@ public class test {
     public void initialize() {
         list.addNodeLast(59);
         list.addNodeLast(70);
-        list.addNodeLast(30);
+        list.addNodeMid(30);
+        list.insertAtTargetPosition(30,40);
     }
 
 
     @Test
     public void testToFindTheNodeIsPresentOrNot() {
-        assertEquals(true,list.findNodeWithValue(30));
+        assertEquals(true,list.findNodeWithValue(40));
     }
 
 }

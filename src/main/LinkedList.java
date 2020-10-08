@@ -119,6 +119,7 @@ public class LinkedList<T> {
         }
     }
 
+    // Finds that node with value is present in the linked list or not
     public boolean findNodeWithValue(T value){
         Node<T> iterator = Head;
         while(iterator!=null){
@@ -129,6 +130,27 @@ public class LinkedList<T> {
         return false;
     }
 
+    //
+    public void insertAtTargetPosition(T target,T value){
+        if(findNodeWithValue(target)){
+            Node<T> iterator = Head;
+            while(true && iterator!=null){
+                if(iterator.getValue()==target){
+                    break;
+                }
+                else
+                    iterator=iterator.getNext();
+            }
+
+            Node<T> temp = new Node<>(value);
+            temp.setNext(iterator.getNext());
+            iterator.setNext(temp);
+        }
+        else{
+            System.out.println("Node with Value " + target + " is not present");
+        }
+    }
+
     public static void main(String[] args) {
         LinkedList<Integer> list =new LinkedList<>();
         list.addNodeLast(56);
@@ -136,7 +158,7 @@ public class LinkedList<T> {
         list.addNodeMid(30);
         list.printList();
         System.out.println();
-        list.deleteNodeEnd();
+        list.insertAtTargetPosition(30,40);
         list.printList();
     }
 }
