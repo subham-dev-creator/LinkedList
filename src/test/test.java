@@ -21,6 +21,9 @@ public class test {
     @Test
     public void testToFindTheNodeIsPresentOrNot() {
         assertEquals(true,list.findNodeWithValue(40));
+        list.deleteSpecificNode(40);
+        assertEquals(false,list.findNodeWithValue(40));
     }
+
 
 }

@@ -15,6 +15,7 @@ public class LinkedList<T> {
             System.out.print(iteratorNode.getValue() + " -->> ");
             iteratorNode = iteratorNode.getNext();
         }
+        System.out.println();
     }
 
     // Add node in linkedList in the front
@@ -151,14 +152,39 @@ public class LinkedList<T> {
         }
     }
 
+    //
+    public void deleteSpecificNode(T value){
+        if(findNodeWithValue(value)){
+            if(Head==Tail && Head.getValue()==value)
+            {
+                Head=null;
+                Tail=null;
+            }
+            else if(Head.getValue()==value) {
+                Head=Head.getNext();
+            }
+            else{
+                Node<T> iterator = Head;
+                while(iterator.getNext().getValue()!=value){
+                    iterator=iterator.getNext();
+                }
+                iterator.setNext(iterator.getNext().getNext());
+            }
+        }
+        else{
+            System.out.println("No node present ");
+        }
+    }
+
     public static void main(String[] args) {
         LinkedList<Integer> list =new LinkedList<>();
         list.addNodeLast(56);
         list.addNodeLast(70);
         list.addNodeMid(30);
         list.printList();
-        System.out.println();
         list.insertAtTargetPosition(30,40);
+        list.printList();
+        list.deleteSpecificNode(70);
         list.printList();
     }
 }
